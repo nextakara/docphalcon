@@ -5,10 +5,10 @@ defined('APP_PATH') || define('APP_PATH', realpath('.'));
 return new \Phalcon\Config(array(
     'database' => array(
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
+        'host'        => '172.17.42.1',
+        'username'    => 'phalcon',
         'password'    => '',
-        'dbname'      => 'test',
+        'dbname'      => 'phalcon',
         'charset'     => 'utf8',
     ),
     'application' => array(

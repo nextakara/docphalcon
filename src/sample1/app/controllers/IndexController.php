@@ -1,12 +1,11 @@
 <?php
-
-class IndexController extends ControllerBase
-{
-
-    public function indexAction()
-    {
-
+/**
+ * サンプルコントローラ
+ */
+class IndexController extends \Phalcon\Mvc\Controller {
+    /**
+     *
+     */
+    public function indexAction() {
     }
-
 }
-

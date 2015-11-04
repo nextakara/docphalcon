@@ -41,3 +41,5 @@ ENV DEBIAN_FRONTEND dialog
 EXPOSE 80
 
 ENTRYPOINT /bin/bash /root/init.sh
+
+WORKDIR /var/www/sample1

@@ -5,9 +5,12 @@ $(function() {
 	$( "#menu" ).menu();
 });
 </script>
+<style>
+  .ui-menu { width: 150px; }
+  </style>
 <ul id="menu">
   <li class="ui-state-disabled">Aberdeen</li>
-  <li>テスト</li>
+  <li><span class="ui-icon ui-icon-disk"></span>テスト</li>
   <li>Adamsville</li>
   <li>Addyston</li>
   <li>Delphi
