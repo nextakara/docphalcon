@@ -16,7 +16,10 @@ RUN git clone --depth=1 https://github.com/phalcon/cphalcon.git
 WORKDIR /root/cphalcon/build
 RUN ./install
 
-COPY asset/20-phalcon.ini /etc/php5/conf.d/
+RUN apt-get -y install vim
+COPY asset/phalcon.ini /etc/php5/mods-available/
+RUN ln -s /etc/php5/mods-available/phalcon.ini /etc/php5/conf.d/20-phalcon.ini
+
 
 WORKDIR /root/
 RUN apt-get -y install curl
@@ -32,6 +35,7 @@ WORKDIR /root/
 
 COPY asset/init.sh /root/
 COPY asset/apache2.conf /etc/apache2/
+COPY asset/default /etc/apache2/sites-available/
 ENV DEBIAN_FRONTEND dialog
 
 EXPOSE 80
