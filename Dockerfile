@@ -7,7 +7,6 @@ WORKDIR /root/
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y install wget net-tools
-#RUN apt-get -y install aptitude
 RUN apt-get -y install git make
 RUN apt-get -y install php5 apache2
 RUN apt-get -y install php5-dev php5-mysql gcc libpcre3-dev
@@ -32,14 +31,20 @@ RUN chmod ugo+x /usr/bin/phalcon
 
 WORKDIR /root/
 
+RUN apt-get -y install chkconfig
 
-COPY asset/init.sh /root/
+COPY asset/ipchange /etc/init.d/
+RUN chkconfig --add ipchange
+
 COPY asset/apache2.conf /etc/apache2/
 COPY asset/default /etc/apache2/sites-available/
 ENV DEBIAN_FRONTEND dialog
 
+RUN sed -i -e 's/^\([1-6]:.\+\)/#\1/g' /etc/inittab
+
+
 EXPOSE 80
 
-ENTRYPOINT /bin/bash /root/init.sh
-
 WORKDIR /var/www/sample1
+
+CMD ["/sbin/init", "3"]
