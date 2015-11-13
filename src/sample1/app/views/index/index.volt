@@ -3,6 +3,10 @@
 <script>
 $(function() {
 	$( "#menu" ).menu();
+	$(window).bind('keydown', function(e) {
+		console.log("["+e.keyCode+"]");
+		return false;
+	});
 });
 </script>
 <style>
