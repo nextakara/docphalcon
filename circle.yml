@@ -5,6 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
+    - docker build --help
     - docker build -t phalcon:0.0.1
 
 test:
