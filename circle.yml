@@ -10,4 +10,3 @@ dependencies:
 test:
   override:
     - docker run -i -t phalcon:0.0.1 php -v
-    - docker run -i -t phalcon:0.0.1 ps aux
