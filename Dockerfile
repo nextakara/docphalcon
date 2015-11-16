@@ -21,15 +21,19 @@ RUN ./install
 COPY asset/phalcon.ini /etc/php5/mods-available/
 RUN ln -s /etc/php5/mods-available/phalcon.ini /etc/php5/conf.d/20-phalcon.ini
 
+# composer
+RUN curl -s http://getcomposer.org/installer | php
+RUN chmod +x composer.phar
+RUN mv composer.phar /usr/local/bin/composer
 
 # phalcon devtools
 WORKDIR /root/
 RUN git clone https://github.com/phalcon/phalcon-devtools.git
 WORKDIR /root/phalcon-devtools
-RUN curl -s http://getcomposer.org/installer | php
-RUN php composer.phar install
+RUN composer install
 RUN ln -s /root/phalcon-devtools/phalcon.php /usr/bin/phalcon
 RUN chmod ugo+x /usr/bin/phalcon
+RUN ln -s /var/www/sample1/vendor/bin/phpunit /usr/local/bin/
 
 # ip固定
 WORKDIR /root/
