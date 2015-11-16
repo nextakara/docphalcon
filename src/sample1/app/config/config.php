@@ -1,15 +1,32 @@
 <?php
 defined('APP_PATH') || define('APP_PATH', realpath('.'));
 
-return new \Phalcon\Config(array(
-    'database' => array(
+switch(true) {
+case (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV']=="circleci"):
+    $database = array(
+        'adapter'     => 'Mysql',
+        'host'        => '172.17.0.1',
+        'username'    => 'ubuntu',
+        'password'    => '',
+        'dbname'      => 'mysql',
+        'charset'     => 'utf8',
+    );
+    break;
+default:
+    $database = array(
         'adapter'     => 'Mysql',
         'host'        => '172.17.42.1',
         'username'    => 'phalcon',
         'password'    => '',
         'dbname'      => 'phalcon',
         'charset'     => 'utf8',
-    ),
+    );
+    break;
+}
+
+
+return new \Phalcon\Config(array(
+    'database' => $database,
     'application' => array(
         'controllersDir' => APP_PATH . '/app/controllers/',
         'modelsDir'      => APP_PATH . '/app/models/',

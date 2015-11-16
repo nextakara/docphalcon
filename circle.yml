@@ -5,9 +5,10 @@ machine:
 
 dependencies:
   override:
-    - docker info
+    - docker version
+    - /sbin/ifconfig
     - docker build -t phalcon:0.0.1 .
 # コメント追加
 test:
   override:
-    - docker run -it -v `pwd`/src:/var/www/ phalcon:0.0.1 phpunit -c /var/www/sample1/tests/
+    - docker run -it -e APP_ENV=circleci -v `pwd`/src:/var/www/ phalcon:0.0.1 phpunit -c /var/www/sample1/tests/
