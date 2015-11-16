@@ -5,7 +5,7 @@ switch(true) {
 case (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV']=="circleci"):
     $database = array(
         'adapter'     => 'Mysql',
-        'host'        => '172.17.0.1',
+        'host'        => '172.17.42.1',
         'username'    => 'ubuntu',
         'password'    => '',
         'dbname'      => 'mysql',
