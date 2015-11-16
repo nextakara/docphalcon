@@ -2,11 +2,13 @@
 
 //use App\App\Controller;
 
+//use \BaseController;
+//require_once('BaseController.php');
 /**
  * サンプルコントローラ
  */
-class IndexController extends Phalcon\Mvc\Controller {
-//class IndexController extends \Controller {
+//class IndexController extends Phalcon\Mvc\Controller {
+class IndexController extends \AppController {
     /**
      * デフォルトページ
      */

@@ -10,4 +10,4 @@ dependencies:
 # コメント追加
 test:
   override:
-    - docker run -it phalcon:0.0.1 phpunit -c /var/www/sample1/tests/
+    - docker run -it phalcon:0.0.1 php /var/www/sample1/vendor/phpunit/phpunit/phpunit -c /var/www/sample1/tests/
