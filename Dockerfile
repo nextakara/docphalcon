@@ -42,6 +42,9 @@ RUN chkconfig --add ipchange
 
 COPY asset/apache2.conf /etc/apache2/
 COPY asset/default /etc/apache2/sites-available/
+COPY asset/php.ini /etc/php5/apache2/
+RUN a2enmod rewrite
+RUN mkdir -p /var/log/phalcon && chown www-data.www-data /var/log/phalcon
 ENV DEBIAN_FRONTEND dialog
 
 # ttyコメントアウト

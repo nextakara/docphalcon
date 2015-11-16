@@ -7,3 +7,9 @@ DOCKER_RUN_OPTIONS=\
 
 
 include docker1.mk
+
+test:
+	docker exec $(NAME) phpunit -c /var/www/sample1/tests/
+
+phplog:
+	docker exec $(NAME) tail -f /var/log/phalcon/app.log

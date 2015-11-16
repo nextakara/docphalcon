@@ -1,7 +1,7 @@
 <?php
 
 use Phalcon\DI;
-use Phalcon\Test\UnitTestCase as PhalconTestCase;
+use Phalcon\Test\FunctionalTestCase  as PhalconTestCase;
 
 abstract class UnitTestCase extends PhalconTestCase
 {
@@ -23,10 +23,11 @@ abstract class UnitTestCase extends PhalconTestCase
     public function setUp(Phalcon\DiInterface $di = NULL, Phalcon\Config $config = NULL)
     {
         // テスト中に必要になる追加のサービスを読み込み
-        $di = DI::getDefault();
+        $config = include APP_PATH . "/app/config/config.php";
+        include APP_PATH . "/app/config/services.php";
 
         // ここで必要なDIコンポーネントを取得する。config があるなら、それを parent に渡すことを忘れずに
-        parent::setUp($di);
+        parent::setUp($di, $config);
 
         $this->_loaded = true;
     }

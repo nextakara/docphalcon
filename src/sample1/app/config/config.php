@@ -1,5 +1,4 @@
 <?php
-
 defined('APP_PATH') || define('APP_PATH', realpath('.'));
 
 return new \Phalcon\Config(array(
@@ -19,6 +18,8 @@ return new \Phalcon\Config(array(
         'pluginsDir'     => APP_PATH . '/app/plugins/',
         'libraryDir'     => APP_PATH . '/app/library/',
         'cacheDir'       => APP_PATH . '/app/cache/',
+        'configDir'      => APP_PATH . '/app/config/',
+        'logDir'         => '/var/log/phalcon/',
         'baseUri'        => '/sample1/',
     )
 ));

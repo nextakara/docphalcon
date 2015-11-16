@@ -16,6 +16,8 @@ use Phalcon\Session\Adapter\Files as SessionAdapter;
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
 $di = new FactoryDefault();
+//$di = new Phalcon\DI();
+//$di = new Phalcon\DI\Injectable();
 
 /**
  * The URL component is used to generate all kind of urls in the application
@@ -26,7 +28,19 @@ $di->setShared('url', function () use ($config) {
 
     return $url;
 });
-
+/**
+ * Router
+ */
+$di->setShared('router', function () use ($config) {
+    require $config->application->configDir . 'router.php';
+    return $router;
+});
+$di->setShared('logger', function () use ($config) {
+    $logger = new Phalcon\Logger\Adapter\File($config->application->logDir.'app.log');
+    $formatter = new Phalcon\Logger\Formatter\Line();
+    $logger->setFormatter($formatter);
+    return $logger;
+});
 /**
  * Setting up the view component
  */

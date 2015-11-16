@@ -1,15 +1,18 @@
 <?php
 /**
- * ƒTƒ“ƒvƒ‹ƒRƒ“ƒgƒ[ƒ‰
+ * ã‚µãƒ³ãƒ—ãƒ«ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©
  */
 class IndexController extends \Phalcon\Mvc\Controller {
     /**
-     *
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒšãƒ¼ã‚¸
      */
     public function indexAction() {
+         $response = new \Phalcon\Http\Response();
+         $response->setStatusCode(200, "OK");
+//         return($response);
     }
     /**
-     *
+     * ç™»éŒ²ãƒ†ã‚¹ãƒˆ
      */
     public function registAction() {
          $response = new \Phalcon\Http\Response();
@@ -17,5 +20,19 @@ class IndexController extends \Phalcon\Mvc\Controller {
             "status" => "OK",
          ));
          return($response);
+    }
+    /**
+     *
+     */
+    public function testAction() {
+        $page = new PageCache();
+        $page->id = "/";
+        $page->cache = "<xml><xml>";
+        $page->save();
+        $di = $this->getDI();
+        $logger = $di->getShared('logger');
+        $this->logger->log("msg", \Phalcon\Logger::INFO);
+        $methods = get_class_methods($this);
+        $this->logger->log(json_encode($methods), \Phalcon\Logger::INFO);
     }
 }
