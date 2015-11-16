@@ -19,6 +19,7 @@ return new \Phalcon\Config(array(
         'libraryDir'     => APP_PATH . '/app/library/',
         'cacheDir'       => APP_PATH . '/app/cache/',
         'configDir'      => APP_PATH . '/app/config/',
+        'classesDir'     => APP_PATH . '/app/classes/',
         'logDir'         => '/var/log/phalcon/',
         'baseUri'        => '/sample1/',
     )

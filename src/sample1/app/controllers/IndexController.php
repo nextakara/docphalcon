@@ -1,14 +1,19 @@
 <?php
+
+//use App\App\Controller;
+
 /**
  * サンプルコントローラ
  */
-class IndexController extends \Phalcon\Mvc\Controller {
+class IndexController extends Phalcon\Mvc\Controller {
+//class IndexController extends \Controller {
     /**
      * デフォルトページ
      */
     public function indexAction() {
          $response = new \Phalcon\Http\Response();
          $response->setStatusCode(200, "OK");
+//         print get_class($this);exit;
 //         return($response);
     }
     /**
@@ -34,5 +39,12 @@ class IndexController extends \Phalcon\Mvc\Controller {
         $this->logger->log("msg", \Phalcon\Logger::INFO);
         $methods = get_class_methods($this);
         $this->logger->log(json_encode($methods), \Phalcon\Logger::INFO);
+    }
+    /**
+     *
+     */
+    public function defaultAction($a=NULL) {
+        $this->view->setMainView('index');
+//      $this->view->set
     }
 }

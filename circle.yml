@@ -1,6 +1,7 @@
 machine:
   services:
     - docker
+    - mysql
 
 dependencies:
   override:
@@ -9,4 +10,4 @@ dependencies:
 # コメント追加
 test:
   override:
-    - docker run -i -t phalcon:0.0.1 php -v
+    - docker run -it phalcon:0.0.1 phpunit -c /var/www/sample1/tests/

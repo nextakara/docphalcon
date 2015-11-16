@@ -1,5 +1,5 @@
 <?php
-$router = new \Phalcon\Mvc\Router();
+$router = new \Phalcon\Mvc\Router(false);
 
 /**
  *  /
@@ -19,3 +19,9 @@ $router->add(
         'action'     => 'test',
     )
 );
+
+//$router->setDefaultModule('backend');
+//$router->setDefaultNamespace('Backend\Controllers');
+
+//$router->setDefaultController('index');
+//$router->setDefaultAction('default');

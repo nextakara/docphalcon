@@ -16,8 +16,6 @@ use Phalcon\Session\Adapter\Files as SessionAdapter;
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
 $di = new FactoryDefault();
-//$di = new Phalcon\DI();
-//$di = new Phalcon\DI\Injectable();
 
 /**
  * The URL component is used to generate all kind of urls in the application
