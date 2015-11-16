@@ -5,7 +5,7 @@ machine:
 
 dependencies:
   override:
-    - cat /etc/my.ini
+    - cat /etc/mysql/my.cnf
     - docker version
     - /sbin/ifconfig
     - docker build -t phalcon:0.0.1 .
